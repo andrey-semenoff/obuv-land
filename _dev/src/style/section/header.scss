@@ -3,4 +3,217 @@ header.header {
   background-color: #ccc;
 }
 
-// f8f8f8
+.header-top {
+	background-color: #f8f8f8;
+}
+
+.header-main {
+
+}
+
+
+.burger {
+
+}
+
+.menu {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+	}
+
+}
+
+.language {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+	}
+
+}
+
+.currency {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+	}
+
+}
+
+.phones {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+	}
+
+}
+
+.schedule {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-time {
+
+	}
+
+}
+
+.logo {
+
+	&-link {
+
+	}
+
+	&-img {
+
+	}
+}
+
+.form-search {
+
+	&__input {
+
+	}
+
+	&__select {
+
+	}
+
+	&__option {
+
+	}
+
+	&__button {
+
+		.icon {
+
+		}
+	}
+	
+}
+
+.hotlinks {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+		.icon {
+
+		}
+	}
+	
+	&-text {
+
+	}
+}
+
+.hotlinks {
+
+	&-submenu {
+
+		&__item {
+
+		}
+
+		&__link {
+
+		}
+	}
+}
+
+.header-catalog {
+
+	background-color: $orange;
+
+	&-all {
+
+	}
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+		&__text {
+
+		}
+
+		.icon {
+
+		}
+	}
+
+}
+
+
+.header-status {
+
+	&-list {
+
+	}
+
+	&-item {
+
+	}
+
+	&-link {
+
+		&__text {
+
+		}
+	
+		.icon {
+
+		}
+	}
+}

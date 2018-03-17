@@ -32,15 +32,100 @@ header.header
 
 
 				.currency
+					ul.currency-list
+						li.currency-item
+							a.currency-link(href="#") UAH
+						li.currency-item
+							a.currency-link(href="#") USD
 
 				.phones
+					ul.phones-list
+						li.phones-item
+							a.phones-link(href="tel:+380670001122") +380670001122
+						li.phones-item
+							a.phones-link(href="tel:+380981231212") +380981231212
 
 				.schedule
+					ul.schedule-list
+						li.schedule-item Пн
+						li.schedule-item Вт
+						li.schedule-item Ср
+						li.schedule-item Чт
+						li.schedule-item Пт
+						li.schedule-item Сб
+						li.schedule-item Вс
+					.schedule-time 8:00 - 20:00
 
+	// ====== header-main ======= 
 	.header-main
 		._container
 			._row
 
-	.header-bottom
+				.logo
+					a.logo-link(href="#")
+						img.logo-img(src="/img/logo.svg", alt="logo")
+
+				form.form-search
+					input.form-search__input(type="text")
+					select.form-search__select
+						option.form-search__option(value="0") Все разделы
+						option.form-search__option(value="1") Мужская обувь
+						option.form-search__option(value="2") Женская обувь
+						option.form-search__option(value="3") Десткая обувь
+					button.form-search__button
+						span.icon.icon-lupa
+
+				.hotlinks
+					ul.hotlinks-list
+						li.hotlinks-item
+							a.hotlinks-link(href="#")
+								span.icon.icon-cabinet
+								.hotlinks-text
+									ul.hotlinks-submenu
+										li.hotlinks-submenu__item
+											a.hotlinks-submenu__link(href="/users/profile") Профиль
+										li.hotlinks-submenu__item
+											a.hotlinks-submenu__link(href="/logout") Выход
+
+	// ====== header-bottom ======= 
+	.header-catalog
 		._container
 			._row
+
+				a.header-catalog-all(href="#")
+
+				ul.header-catalog-list
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_children
+							span.header-catalog-link__text Детская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_snikers
+							span.header-catalog-link__text Подростковая обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_women
+							span.header-catalog-link__text Женская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_smart
+							span.header-catalog-link__text Мужская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_crox
+							span.header-catalog-link__text Украинская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="#")
+							span.icon.icon-shoes_sandals
+							span.header-catalog-link__text Летняя обувь
+					
+				ul.header-status-list
+					li.header-status-item
+						a.header-status-link(href="#")
+							span.icon.icon-new
+							span.header-status-link__text Новинки
+					li.header-status-item
+						a.header-status-link(href="#")
+							span.icon.icon-sale
+							span.header-status-link__text Уценка
