@@ -1,14 +1,22 @@
 /*! ===== header ===== */
 header.header {
-  background-color: #ccc;
+
 }
 
 .header-top {
 	background-color: #f8f8f8;
+
+	&__right {
+		float: right;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		margin-top: 15px;
+	}
 }
 
 .header-main {
-
+	padding: 0 15px;
 }
 
 
@@ -17,38 +25,97 @@ header.header {
 }
 
 .menu {
+	float: left;
 
 	&-list {
-
+		display: flex;
+		flex-flow: row nowrap;
 	}
 
 	&-item {
-
+		
+		&_active .menu-link {
+			color: $green;
+		}
 	}
 
 	&-link {
+		display: inline-block;
+		padding: 15px;
 
+		&:first-letter {
+			text-transform: uppercase;
+		}
+
+		&:hover {
+			color: $green;
+		}
 	}
 
 }
 
-.language {
+.dropdown {
+	position: relative;
+	height: 17px;
 
-	&-list {
-
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 5px solid #000;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
 	}
 
-	&-item {
+	&__button {
+		@include center-absolute();
+		cursor: pointer;
+	}
 
+	ul {
+		position: absolute;
+		overflow: hidden;
+		height: 100%;
+	}
+
+	&_open {
+		ul {
+			height: auto;
+		}
+		&:after {
+			border-top: none;
+			border-bottom: 5px solid #000;
+		}
+	}
+}
+
+.language {
+	min-width: 40px;
+	padding-right: 15px;
+
+	&-item {
+		&:first-letter {
+			text-transform: uppercase;
+		}
 	}
 
 	&-link {
+		display: inline-block;
+		margin-bottom: 5px;
 
+		&:first-letter {
+			text-transform: uppercase;
+		}
 	}
 
 }
 
 .currency {
+	min-width: 45px;
+	margin-left: 25px;
+	padding-right: 15px;
 
 	&-list {
 
@@ -59,12 +126,17 @@ header.header {
 	}
 
 	&-link {
+		display: inline-block;
+		margin-bottom: 5px;
 
 	}
 
 }
 
 .phones {
+	min-width: 135px;
+	margin-left: 45px;
+	padding-right: 15px;
 
 	&-list {
 
@@ -75,53 +147,98 @@ header.header {
 	}
 
 	&-link {
-
+		display: inline-block;
+		margin-bottom: 5px;
+		font-family: $TrebuchetMS-Bold;
+		color: #888;
 	}
 
 }
 
 .schedule {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	margin-left: 15px;
+	padding-right: 15px;
 
 	&-list {
-
+		display: flex;
+		flex-flow: row nowrap;
 	}
 
 	&-item {
+		margin-left: 5px;
+		font-size: 12px;
+		padding: 2px;
+		border: 1px solid $green;
+		color: $green;
 
+		&_inactive {
+			border-color: #acacac;
+			color: #acacac;
+		}
 	}
 
 	&-time {
-
+		margin-left: 10px;
+		color: #888;
 	}
 
 }
 
+.header-main {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .logo {
+	margin: 20px 40px;
 
 	&-link {
-
+		display: inline-block;
 	}
 
 	&-img {
-
+		
 	}
 }
 
 .form-search {
+	width: 40%;
+	height: 40px;
+	border: 2px solid #848484;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+
 
 	&__input {
-
+		width: 70%;
+		padding: 0 15px;
+		border: none;
+		outline: none;
 	}
 
 	&__select {
-
+		width: 20%;
+		border: none;
+		outline: none;	
 	}
 
 	&__option {
-
+	
 	}
 
 	&__button {
+		min-width: 40px;
+		background-color: $orange;
+		
+		&:hover {
+			background-color: darken($orange, 10%);
+		}
 
 		.icon {
 
@@ -132,8 +249,11 @@ header.header {
 
 .hotlinks {
 
-	&-list {
 
+	&-list {
+		display: flex;
+		flex-flow: row nowrap;
+		text-align: center;
 	}
 
 	&-item {
@@ -141,14 +261,24 @@ header.header {
 	}
 
 	&-link {
+		display: inline-block;
+		padding: 0 15px;
+
+		&_basket {
+			color: $green;
+		}
 
 		.icon {
 
 		}
+
+		&:hover {
+			color: $green;
+		}
 	}
 	
 	&-text {
-
+		margin-top: 5px;
 	}
 }
 
@@ -167,15 +297,34 @@ header.header {
 }
 
 .header-catalog {
-
+	padding: 0 15px;
 	background-color: $orange;
 
-	&-all {
+	&-inner {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	}
 
+	&-all {
+		display: inline-block;
+		padding: 15px 0;
+		font: 18px $TrebuchetMS-Bold;
+		color: #353535;
+		
+		&:hover{
+			color: $green;
+		}
+
+		i {
+			margin-right: 10px;
+		}
 	}
 
 	&-list {
-
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
 	}
 
 	&-item {
@@ -183,12 +332,19 @@ header.header {
 	}
 
 	&-link {
+		display: inline-block;
+		padding: 15px;
+
+		&:hover{
+			color: $green;
+		}
 
 		&__text {
 
 		}
 
 		.icon {
+			margin-right: 10px;
 
 		}
 	}
@@ -199,7 +355,9 @@ header.header {
 .header-status {
 
 	&-list {
-
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
 	}
 
 	&-item {
@@ -207,13 +365,16 @@ header.header {
 	}
 
 	&-link {
+		display: inline-block;
+		padding: 15px;
+		color: $green;
 
 		&__text {
 
 		}
 	
 		.icon {
-
+			margin-right: 10px;
 		}
 	}
 }

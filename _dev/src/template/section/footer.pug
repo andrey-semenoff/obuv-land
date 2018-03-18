@@ -1,13 +1,25 @@
 // ====== footer ======= 
 footer.footer
-	|Sticky Footer of frontend template
+	._container
+		.footer-catalog
+			- var i = 0
+			while i <= 5
+				.footer-catalog-holder
+					.footer-catalog-title Название каталога #{i++}
+					ul.footer-catalog__list
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 1
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 2
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 3
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 4
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 5
+						li.footer-catalog__item
+							a.footer-catalog__link(href="#") Подкаталог 6
 
-// ====== scripts ======= 
-// Start Google analytics 
-//script.
-// End Google analytics 
-
-// Yandex.Metrika counter 
-//script(type="text/javascript").
-//noscript
-// /Yandex.Metrika counter 
+		.footer-bottom
+			.copyright &copy; 2018 Все права защищены
+			a.skylogic(href="https://skylogic.com.ua") Создание и продвижение сайта

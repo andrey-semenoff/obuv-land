@@ -1,8 +1,52 @@
 /*! ===== footer styles ===== */
 
 footer.footer {
-  // position: relative;
-  // height: $footer-height;
-	
-	background-color: #ccc;
+	padding: 0 15px;
+	background-color: #272727;
+	border-top: 15px solid $orange;
+	color: #fff;
+}
+
+.footer-catalog {
+	padding: 35px 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+
+	&-holder {
+
+	}
+
+	&-title {
+		padding: 10px 0;
+		font-family: $TrebuchetMS-Bold;
+		text-transform: uppercase;
+		color: $orange;
+	}
+
+	&__link {
+		display: inline-block;
+		padding: 10px 0;
+		color: #fffefe;
+
+		&:hover {
+			color: $orange;
+		}
+	}
+}
+
+.footer-bottom {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	padding: 15px 0;
+}
+
+.skylogic {
+	color: #fff;
+	text-decoration: underline;
+
+	&:hover {
+		color: #fff;
+	}
 }

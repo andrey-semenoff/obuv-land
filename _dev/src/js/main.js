@@ -34,6 +34,52 @@ $(function () {
       }
   	}
   });
+
+  // dropdown toggle
+  if( $('.dropdown').length ) {
+    $('.dropdown').append('<div class="dropdown__button"></div')
+    
+    $('.dropdown__button').on('click', function(e) {
+      e.preventDefault();
+      var $dropdown = $(this).closest('.dropdown');
+      $dropdown.toggleClass('dropdown_open');
+    });
+  }
+
+
+
+  // next script
+  make_custom_select('.form-search__select', 'select-custom');
+
 });
 
+
+//
+function make_custom_select(select, el) {
+  var $select = $(select);
+
+  $select.wrap("<div class='" + el + "'></div>");
+  $select.hide();
+
+  var $el = $('.' + el);
+
+  $el.append('<div class="'+ el + '__selected"></div><div class="'+ el + '__list"></div>');
+  
+  $select.children().each(function() {
+    var index = $(this).val();
+    $('.' + el + '__list').append('<div class="'+ el + '__item" data-id="'+index+'">' + $(this).text() + '</div>');
+  });
+  
+  $('.' + el + '__selected').html($('.' + el + '__item').first().html());  
+  
+  $(document).on('click', '.' + el, function (e) {
+    e.preventDefault();
+    $('.' + el + '__list').slideToggle();
+  });
+
+  $(document).on('click', '.' + el + '__item', function (e) {
+    $('.' + el + '__selected').html($(this).html());
+  });
+
+}
 

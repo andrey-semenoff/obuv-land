@@ -10,7 +10,7 @@ $TrebuchetMS-Italic: 'TrebuchetMS-Italic', Helvetica, sans-serif;
 
 $container-width: 1920px;
 $body-color: #fff;
-$body-font-color: #000;
+$body-font-color: #353535;
 
 $orange: #ffcc00;
 $green: #438001;
@@ -40,6 +40,7 @@ body {
 a, a:hover, a:focus {
   text-decoration: none;
   cursor: pointer;
+  color: $body-font-color;
 }
 
 img {
@@ -86,6 +87,7 @@ h1, h2, h3, h4, h5, h6, p {
 .button {
   display: inline-block;
   border: none;
+  transition: .5s;
 
   &:hover {
     cursor: pointer;
@@ -154,5 +156,66 @@ h1, h2, h3, h4, h5, h6, p {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+// select-custom
+.select-custom {
+  position: relative;
+  min-width: 140px;
+  max-width: 40%;
+  width: fit-content;
+  white-space: nowrap;
+  padding: 10px 30px 10px 10px ;
+  cursor: pointer;
+  font-size: 14px;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 23px;
+    background-color: #c0c0c0;
+  }  
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border-top: 5px solid #000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  &__selected {
+    color: #9c9c9c;
+    overflow: hidden;
+  }
+  
+  &__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: max-content;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+  
+  &__item {
+    display: block;
+    padding: 10px 15px;
+    text-align: left;
+    
+    &:hover {
+      background-color: rgba($green, 0.3);
+    }
+  }
 }
 
