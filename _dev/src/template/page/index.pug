@@ -1,23 +1,92 @@
 extends ../main
 
 block content
-	|Content of index page
+	._container
 
-	// ====== owl-carousel ======= 
-	.owl-carousel(data-type="common")
+		// ====== owl-carousel ======= 
+		.owl-carousel.slider_main
+			.carousel__item
+				img(src="img/slider/slide_1.jpg")
+				.carousel-text
+					.carousel-text__inner
+						div(style="text-transform: uppercase;") Бесплатная
+						div(style="text-transform: uppercase;") доставка
+						div от 20 ящиков
+						a.button.hvr-sweep-to-right.carousel-button(href="/shop")
+							| Начать покупки
+							.icon.icon-arrow_go
+			.carousel__item
+				img(src="img/slider/slide_2.jpg")
+			.carousel__item
+				img(src="img/slider/slide_3.jpg")
+			.carousel__item
+				img(src="img/slider/slide_1.jpg")
+			.carousel__item
+				img(src="img/slider/slide_2.jpg")
 
-		.carousel__item 
-			img(src="img/spriteIcons.png")
-		.carousel__item
-			img(src="img/spriteIcons.png")
-		.carousel__item
-			img(src="img/spriteIcons.png")
-		.carousel__item
-			img(src="img/spriteIcons.png")
-		.carousel__item
-			img(src="img/spriteIcons.png")
+		// ====== category ======= 
+		.category_group
+			.category.category_new
+				.title
+					.title__inner Новинки
+				.owl-carousel.category__carousel
+					- var i = 0
+					while i <= 6
+						.carousel__item
+							include ../section/product-mini
 
-	// ====== google-map ======= 
-	.google-map(onMouseLeave="document.querySelector('.google-map__overlay').style.pointerEvents=''")
-		.google-map__overlay(onClick="style.pointerEvents='none'")
-		iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39900487.71448589!2d40.60944223142707!3d52.382522441872524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1482606480304" width="100%" height="375" frameborder="0" style="border:0" allowfullscreen)
+			.category.category_brand
+				.title
+					.title__inner Бренды
+				ul.brands-list(data-simplebar)
+					li.brands-item
+						.brands-item__name zoom
+						.brands-item__subname shoes
+					li.brands-item
+						.brands-item__name zoom
+						.brands-item__subname shoes
+					li.brands-item
+						.brands-item__name zoom
+						.brands-item__subname shoes
+					li.brands-item
+						.brands-item__name zoom
+						.brands-item__subname shoes
+
+		// ====== infoblocks ======= 
+		.infoblocks
+			a.infoblock.infoblock_sm(href="#")
+				img.infoblock__img(src="/img/info/info_1.jpg", alt="info")
+			a.infoblock.infoblock_lg(href="#")
+				img.infoblock__img(src="/img/info/info_2.jpg", alt="info")
+
+		// ====== category ======= 
+		.category.category_sale
+			.title
+				.title__inner Скидка
+			.owl-carousel.category__carousel
+				- var i = 0
+				while i <= 7
+					.carousel__item
+						include ../section/product-mini
+
+		// ====== steps ======= 
+		.steps
+			.title
+				.title__inner Как мы работаем
+
+			ul.steps-list
+				li.steps-item
+					.steps-img-holder
+						img.steps-img(src="/img/other/track.jpg", alt="step_1")
+						.steps-num 1
+					.steps-title Загружаем товар на складе
+				li.steps-item
+					.steps-img-holder
+						img.steps-img(src="/img/other/packages.jpg", alt="step_2")
+						.steps-num 2
+					.steps-title Отправляем на новую почту
+				li.steps-item
+					.steps-img-holder
+						img.steps-img(src="/img/other/chicka.jpg", alt="step_3")
+						.steps-num 3
+					.steps-title Товар у покупателя

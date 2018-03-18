@@ -1,0 +1,10 @@
+- var src = "/img/products/product_"+ (++i) +".jpg"
+.product-mini
+	a.product-mini__img-holder(href="product.html")
+		img.product-mini__img(src=src, alt="product")
+	.product-mini__name Кроссовки Maximum A758-#{i} $
+	.product-mini__price Цена:
+		span #{i}80 грн.
+	.product-mini__buttons
+		a.button.hvr-sweep-to-right.product-mini__button(href="product.html") Подробнее
+		button.button.hvr-sweep-to-right.product-mini__button.product-mini__button_buy Купить

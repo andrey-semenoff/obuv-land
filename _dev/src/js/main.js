@@ -2,38 +2,64 @@
 
 $(function () {
 
-  // Инициализация скрипта
+  // Smooth scroll
   Smooth_Scroll.init();
   
-  // owl-carousel init
-  $(".owl-carousel[data-type='common']").owlCarousel({
-  	items: 4,
-  	loop: true,
+  // main slider
+  var $slider_main = $(".slider_main");
+
+  $slider_main.on('initialized.owl.carousel', function (e) {
+    if( $(window).width() > 992 ) {
+      $(".slider_main").find('.owl-item').addClass('mini');
+      $(".slider_main").find('.owl-item.active').eq(0).removeClass('mini');
+    }
+  });
+
+  $slider_main.owlCarousel({
+    center: true,
+    items:2,
+    loop:true,
+    margin:10,
   	smartSpeed: 1000,
-  	autoHeight: true,
   	nav: true,
   	navText: [
-  		"<span class='fa fa-chevron-left fa-2x owl-nav_arrow'></span>",
-  		"<span class='fa fa-chevron-right fa-2x owl-nav_arrow'></span>"
-  	],
-  	responsive: {
-  		992: {
-        items: 4,
-      },
-      
-      768: {
-      	items: 3,
-      },
-      
-      550: {
-      	items: 2,
-      },
-
-      0: {
-      	items: 1,
-      }
-  	}
+  		"<i class='icon icon-arrow_slider owl-nav_arrow'></span>",
+  		"<i class='icon icon-arrow_slider owl-nav_arrow'></span>"
+  	]
+  }).on('translate.owl.carousel', function (e) {
+      $(".slider_main").find('.owl-item').removeClass('mini');
+  }).on('translated.owl.carousel', function (e) {
+    if( $(window).width() > 992 ) {
+      $(".slider_main").find('.owl-item').addClass('mini');
+      $(".slider_main").find('.owl-item.active').eq(0).removeClass('mini');
+    }
   });
+
+  // categoriy_new on main
+  $('.category_new .category__carousel').owlCarousel({
+    items: 5,
+    loop: true,
+    margin: 30,
+    smartSpeed: 1000,
+    nav: true,
+    navText: [
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
+    ]
+  })
+
+  // categoriy_sale on main
+  $('.category_sale .category__carousel').owlCarousel({
+    items: 6,
+    loop: true,
+    margin: 30,
+    smartSpeed: 1000,
+    nav: true,
+    navText: [
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
+    ]
+  })
 
   // dropdown toggle
   if( $('.dropdown').length ) {
@@ -46,10 +72,15 @@ $(function () {
     });
   }
 
+  // custom select in search bar header
+  make_custom_select('.form-search__select', 'select-custom');
 
+  // custom scroll bar brands
+  new SimpleBar(document.querySelector('.brands-list'), { 
+    autoHide: false
+  });
 
   // next script
-  make_custom_select('.form-search__select', 'select-custom');
 
 });
 

@@ -27,7 +27,7 @@ header.header {
 .menu {
 	float: left;
 
-	&-list {
+	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 	}
@@ -117,7 +117,7 @@ header.header {
 	margin-left: 25px;
 	padding-right: 15px;
 
-	&-list {
+	&-list[class] {
 
 	}
 
@@ -138,7 +138,7 @@ header.header {
 	margin-left: 45px;
 	padding-right: 15px;
 
-	&-list {
+	&-list[class] {
 
 	}
 
@@ -162,7 +162,7 @@ header.header {
 	margin-left: 15px;
 	padding-right: 15px;
 
-	&-list {
+	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 	}
@@ -250,7 +250,7 @@ header.header {
 .hotlinks {
 
 
-	&-list {
+	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 		text-align: center;
@@ -321,10 +321,11 @@ header.header {
 		}
 	}
 
-	&-list {
+	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
+		text-align: center;
 	}
 
 	&-item {
@@ -340,7 +341,7 @@ header.header {
 		}
 
 		&__text {
-
+			display: inline-block;
 		}
 
 		.icon {
@@ -354,10 +355,11 @@ header.header {
 
 .header-status {
 
-	&-list {
+	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
+		text-align: center;
 	}
 
 	&-item {
@@ -370,7 +372,7 @@ header.header {
 		color: $green;
 
 		&__text {
-
+			display: inline-block;
 		}
 	
 		.icon {

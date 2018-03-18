@@ -67,6 +67,7 @@ module.exports = {
                       './bower_components/normalize-css/normalize.css',
                       './bower_components/owl.carousel/dist/assets/owl.carousel.min.css',
                       './bower_components/font-awesome/css/font-awesome.min.css',
+                      './bower_components/hover/css/hover-min.css',
                     ],
                 dest: './_build/css/vendor/'
               },

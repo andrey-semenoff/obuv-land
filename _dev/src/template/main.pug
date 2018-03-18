@@ -1,5 +1,8 @@
 doctype html
 html(lang="ru-RU")
+	
+	block vars
+
 	head
 		include section/_head
 	body
@@ -8,6 +11,10 @@ html(lang="ru-RU")
 
 		include section/header
 
-		block content
+		if breadcrumbs
+			include section/breadcrumbs
+
+		main.main
+			block content
 
 		include section/footer

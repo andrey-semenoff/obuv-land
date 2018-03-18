@@ -1,0 +1,6 @@
+.breadcrumbs
+	._container
+		ul.breadcrumbs__list
+			each item in breadcrumbs
+				li.breadcrumbs__item
+					a.breadcrumbs__link(href=item.link)=item.name
