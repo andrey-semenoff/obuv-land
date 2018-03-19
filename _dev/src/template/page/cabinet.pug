@@ -1,0 +1,93 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Мой кабинет',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+
+		.title
+			.title__inner Мой кабинет
+
+	.cabinet
+		.cabinet__switch
+			._container
+				.cabinet__switch-buttons
+					a.cabinet__switch-button(href="#cabinet__tab_data") Мои данные
+					a.cabinet__switch-button.active(href="#cabinet__tab_orders") Мои заказы
+					a.cabinet__switch-button.cabinet__switch-button_logout(href="/logout") Выйти
+
+		._container
+			.cabinet__tabs
+				.cabinet__tab#cabinet__tab_data
+					form.form.form_cabinet
+						._row
+							.form-group
+								label.form__label.form__label_required
+									.form__label-text Ф.И.О.
+									input.form__input(type="text" name="name" placeholder="Введите Ф.И.О.")
+								label.form__label.form__label_required
+									.form__label-text Ваш e-mail
+									input.form__input(type="email" name="email" placeholder="Введите ваш e-mail")
+								label.form__label.form__label_required
+									.form__label-text Ваш телефон
+									input.form__input(type="tel" name="phone" placeholder="Введите номер вашего телефона")
+								label.form__label.form__label_button
+									button.button.hvr-sweep-to-right.form__button Сохранить
+							.form-group
+								label.form__label
+									.form__label-text Старый Пароль
+									input.form__input(type="password" name="pass" placeholder="Введите пароль")
+								label.form__label
+									.form__label-text Новый Пароль
+									input.form__input(type="password" name="pass" placeholder="Введите пароль")
+
+				.cabinet__tab#cabinet__tab_orders
+					table.cabinet-orders
+						thead
+							tr
+								th Дата
+								th Номер заказа
+								th Статус
+								th Сумма
+								th
+
+						tbody
+							tr
+								td 12.03.2018
+								td 445
+								td Оплачен
+								td 10000,00
+								td 
+									a.cabinet-orders__link_more(href="#") Подробнее
+							tr
+								td 12.03.2018
+								td 445
+								td Оплачен
+								td 10000,00
+								td 
+									a.cabinet-orders__link_more(href="#") Подробнее
+							tr
+								td 12.03.2018
+								td 445
+								td Оплачен
+								td 10000,00
+								td 
+									a.cabinet-orders__link_more(href="#") Подробнее
+							tr
+								td 12.03.2018
+								td 445
+								td Оплачен
+								td 10000,00
+								td 
+									a.cabinet-orders__link_more(href="#") Подробнее

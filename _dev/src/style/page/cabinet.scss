@@ -1,0 +1,86 @@
+/*! ===== cabinet ===== */
+.cabinet {
+	padding-bottom: 150px;
+
+	&__switch {
+		margin-top: 60px;
+		background-color: #f8f8f8;
+
+		&-buttons {
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			padding: 0 15px;
+		}
+
+		&-button {
+			padding: 10px 15px;
+			font-family: $TrebuchetMS-Bold;
+			transition: .5s;
+
+			&.active {
+				background-color: $orange;
+			}
+			 &:not(.active):hover {
+				background-color: rgba($orange, .4);
+			}
+
+			&_logout {
+				margin-left: auto;
+			}
+		}
+	}
+
+	&__tabs {
+		padding: 0 15px;
+	}
+
+	&__tab {
+		display: none;
+		margin-top: 40px;
+	}
+
+
+}
+
+.form_cabinet {
+	width: 600px;
+
+	.form__button {
+		border-color: $green;
+		color: $green;
+
+		&:hover {
+			color: #fff;
+		}
+
+		&:before {
+			background-color: $green;
+		}
+	}
+}
+
+.cabinet-orders {
+	width: 734px;
+	border-collapse: collapse;
+	
+	td, th {
+		text-align: center;
+		padding: 15px;
+	}
+	
+	th {
+		font-family: $TrebuchetMS-Bold;
+	}
+
+	td {
+		border-top: 1px solid #d9d9d9;
+	}
+
+	&__link_more {
+		color: $green;
+		text-decoration: underline;
+	}
+}

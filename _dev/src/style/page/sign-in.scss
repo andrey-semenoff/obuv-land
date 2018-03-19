@@ -1,0 +1,26 @@
+/*! ===== sign-in ===== */
+.sign-in {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	
+	&__col {
+		margin: 70px 15px;
+	}
+
+	.form {
+		min-width: 290px;
+
+		&__button {
+    	border-color: $orange;
+
+	    &:before {
+	      background-color: $orange;
+	    }
+		}	
+	}
+}

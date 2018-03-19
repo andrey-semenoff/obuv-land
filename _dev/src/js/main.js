@@ -76,9 +76,30 @@ $(function () {
   make_custom_select('.form-search__select', 'select-custom');
 
   // custom scroll bar brands
-  new SimpleBar(document.querySelector('.brands-list'), { 
-    autoHide: false
-  });
+  if( $('.brands-list').length ) {
+    new SimpleBar(document.querySelector('.brands-list'), { 
+      autoHide: false
+    });
+  }
+
+  // switch tabs in cabinet
+  if( $('.cabinet').length ) {
+    var $tab_active = $($('.cabinet__switch-button.active').attr('href'));
+
+    $tab_active.show();
+
+    $('.cabinet__switch-button').on('click', function(e) {
+      e.preventDefault();
+
+      var $this = $(this),
+          $tab = $($this.attr('href'));
+
+      $this.addClass('active').siblings().removeClass('active');
+      $('.cabinet__tab').hide();
+      $tab.show();
+    })
+  }
+
 
   // next script
 

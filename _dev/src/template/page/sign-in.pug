@@ -1,0 +1,56 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Вход/Регистрация',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+
+		.title
+			.title__inner Вход/Регистрация
+
+		.sign-in
+			.sign-in__col
+				form.form.form_sign-in
+					.form__title Авторизация
+					label.form__label.form__label_required
+						.form__label-text Ваш e-mail
+						input.form__input(type="email" name="email" placeholder="Введите ваш e-mail")
+					label.form__label.form__label_required
+						.form__label-text Пароль
+						input.form__input(type="password" name="pass" placeholder="Введите пароль")
+					label.form__label.form__label_button
+						button.button.hvr-sweep-to-right.form__button Войти
+					p(style="text-align: center;")
+						a.form__link_reset(href="/resetpass.html") Восстановить пароль
+
+			.sign-in__col
+				form.form.form_sign-up
+					.form__title Регистрация
+					label.form__label.form__label_required
+						.form__label-text Ф.И.О.
+						input.form__input(type="text" name="name" placeholder="Введите Ф.И.О.")
+					label.form__label.form__label_required
+						.form__label-text Ваш e-mail
+						input.form__input(type="email" name="email" placeholder="Введите ваш e-mail")
+					label.form__label.form__label_required
+						.form__label-text Ваш телефон
+						input.form__input(type="tel" name="phone" placeholder="Введите номер вашего телефона")
+					label.form__label.form__label_required
+						.form__label-text Пароль
+						input.form__input(type="password" name="pass" placeholder="Введите пароль")
+					label.form__label.form__label_captcha.form__label_required
+						input.form__input.form__input_captcha(type="text" name="captcha" placeholder="Введите код")
+						img.form__captcha(src="/img/other/captcha.png", alt="captcha")
+					label.form__label.form__label_button
+						button.button.hvr-sweep-to-right.form__button Зарегистрироваться

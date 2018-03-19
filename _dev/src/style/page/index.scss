@@ -76,6 +76,7 @@
 		bottom: 0;
 		transform: none;
 		width: 25%;
+		outline: none;
 
 		.owl-nav_arrow {
 			position: absolute;
@@ -107,7 +108,7 @@
 .category_group {
 	display: flex;
 	flex-flow: row nowrap;
-
+	margin-top: 50px;
 }
 
 .category {
@@ -348,63 +349,5 @@
 
 	&:first-child {
 		padding-right: 30px;
-	}
-}
-
-.form {
-
-	&_contact {
-
-	}
-
-	&-group {
-		float: left;
-		width: 50%;
-
-		&:last-child {
-			padding-left: 30px;
-		}
-	}
-
-	&__label {
-		display: block;
-		margin-top: 10px;
-
-		&_button {
-			margin-top: 25px;
-		}
-
-		&_required {
-			.form__label-text:after {
-				content: '*';
-				color: red;
-				margin-left: 5px;
-			}
-		}
-
-		&-text {
-			font-family: $TrebuchetMS-Bold;
-		}
-	}
-
-	&__input {
-		width: 100%;
-		padding: 10px 15px;
-
-		&_textarea {
-			height: 110px;
-			resize: none;
-		}
-	}
-
-	&__button {
-		width: 100%;
-		padding: 10px 15px;
-		text-transform: uppercase;
-		border: 2px solid #7d7d7d;
-
-		&:before {
-			background-color: #7d7d7d;
-		}
 	}
 }
