@@ -1,0 +1,90 @@
+// ====== cart-table ======= 
+.cart__table
+	.cart__thead
+		.cart__th.cart__th_img Изображение
+		.cart__th.cart__th_name Название
+		.cart__th.cart__th_num Количество
+		.cart__th.cart__th_price Цена
+		.cart__th.cart__th_amount Сумма
+
+	ul.cart__list
+		li.cart__item(data-cart-id="1")
+			.cart__item-info.cart__item-img-holder
+				a.cart__item-name(href="product.html")
+					img.cart__item-img(src="/img/products/product_1.jpg", alt="")
+				a.cart__item-delete(href="#") Удалить
+
+			.cart__item-info.cart__item-name-holder
+				a.cart__item-name(href="product.html") Кроссовки Maximum A758-1 $
+
+			.cart__item-info.cart__item-num-holder
+				._row.product-amount-changer
+					.product-amount-changer__btn(data-action="-")
+						.icon.icon-minus
+					input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
+					.product-amount-changer__btn(data-action="+")
+						.icon.icon-plus
+
+			.cart__item-info.cart__item-price-holder
+				.product__price
+					span 500,00
+					
+			.cart__item-info.cart__item-amount-holder
+				.product__price
+					span 1000,00
+		li.cart__item(data-cart-id="1")
+			.cart__item-info.cart__item-img-holder
+				a.cart__item-name(href="product.html")
+					img.cart__item-img(src="/img/products/product_1.jpg", alt="")
+				a.cart__item-delete(href="#") Удалить
+
+			.cart__item-info.cart__item-name-holder
+				a.cart__item-name(href="product.html") Кроссовки Maximum A758-1 $
+
+			.cart__item-info.cart__item-num-holder
+				._row.product-amount-changer
+					.product-amount-changer__btn(data-action="-")
+						.icon.icon-minus
+					input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
+					.product-amount-changer__btn(data-action="+")
+						.icon.icon-plus
+
+			.cart__item-info.cart__item-price-holder
+				.product__price
+					span 500,00
+					
+			.cart__item-info.cart__item-amount-holder
+				.product__price
+					span 1000,00
+		li.cart__item(data-cart-id="1")
+			.cart__item-info.cart__item-img-holder
+				a.cart__item-name(href="product.html")
+					img.cart__item-img(src="/img/products/product_1.jpg", alt="")
+				a.cart__item-delete(href="#") Удалить
+
+			.cart__item-info.cart__item-name-holder
+				a.cart__item-name(href="product.html") Кроссовки Maximum A758-1 $
+
+			.cart__item-info.cart__item-num-holder
+				._row.product-amount-changer
+					.product-amount-changer__btn(data-action="-")
+						.icon.icon-minus
+					input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
+					.product-amount-changer__btn(data-action="+")
+						.icon.icon-plus
+
+			.cart__item-info.cart__item-price-holder
+				.product__price
+					span 500,00
+
+			.cart__item-info.cart__item-amount-holder
+				.product__price
+					span 1000,00
+
+	.cart__footer
+		.cart__total Итого:
+			span 1800,00 грн.
+
+		._row.cart__buttons
+			button.button.hvr-sweep-to-right.cart__close Продолжить покупки
+			a.button.hvr-sweep-to-right.cart__checkout Оформить заказ

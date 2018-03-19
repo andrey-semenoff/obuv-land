@@ -1,0 +1,273 @@
+/*! ===== cart ===== */
+#cart_popup {
+	padding-top: 50px;
+}
+
+.cart-popup {
+	.fancybox-close {
+		top: 10px;
+		right: 10px;
+		@extend .icon;
+		@extend .icon-close;
+	}
+}
+
+.cart__table {
+  overflow-y: auto;
+}
+
+.cart__title {
+  font-size: 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cart__table * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cart__thead {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media screen and (max-width: 480px) {
+  .cart__thead {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #cart_popup .cart__thead {
+    display: none;
+  }
+}
+
+.cart__th {
+  padding: 15px 0;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  font: 18px $TrebuchetMS-Bold;
+  text-align: center;
+}
+
+.cart__th_img {
+  width: 140px;
+}
+
+.cart__th_name {
+  width: 300px;
+}
+
+.cart__th_num {
+  width: 250px;
+}
+
+.cart__th_price {
+  width: 150px;
+}
+
+.cart__th_amount {
+  width: 200px;
+}
+
+
+.cart__list {
+  max-height: 380px;
+  overflow: auto;
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .cart__item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #cart_popup .cart__item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.cart__item-img-holder {
+  width: 140px;
+  text-align: center;
+}
+
+.cart__item-img {
+  max-width: 100%;
+  max-height: 140px;
+}
+
+.cart__item-delete {
+  font-size: 15px;
+  color: #444443;
+  text-decoration: underline;
+}
+
+.cart__item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .cart__item-info {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #cart_popup .cart__item-info {
+    margin-bottom: 15px;
+  }
+}
+
+.cart__item-name-holder {
+  width: 300px;
+  padding: 0 15px;
+  font: 15px Arial, sans-serif;
+}
+
+
+@media screen and (max-width: 480px) {
+  .cart__item-name-holder {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #cart_popup .cart__item-name-holder {
+    width: auto;
+  }
+}
+
+.cart__item-name {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cart__item-params {
+  margin-top: 10px;
+}
+
+.cart__item-num-holder {
+  width: 250px;
+  text-align: center;
+}
+
+.cart__item-price-holder {
+  width: 150px;
+  text-align: center;
+}
+
+.cart__item-price-holder .product__price {
+
+}
+
+.cart__item-amount-holder {
+  width: 200px;
+  text-align: center;
+}
+
+.cart__item-amount-holder .product__price {
+
+}
+
+.cart__footer {
+  margin-top: 15px;
+}
+
+.cart__total {
+  font: 24px $TrebuchetMS-Bold;
+  text-align: right;
+}
+
+#order_block2 .cart__total {
+  float: right;
+}
+
+@media screen and (max-width: 480px) {
+  .cart__total {
+    float: none;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
+
+.cart__buttons {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
+
+
+@media screen and (max-width: 480px) {
+  .cart__buttons {
+    text-align: center;
+  }
+}
+
+.cart__close {
+  margin: 25px 0 0 25px;
+	padding: 10px 15px;
+	background-color: #fff;
+	border: 2px solid #7d7d7d;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:before {
+  	background-color: #7d7d7d;
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+
+  #cart_popup .cart__buttons {
+    text-align: center;
+  }
+
+  #cart_popup .cart__button {
+    float: none;
+  }
+
+  #cart_popup .cart__checkout {
+    float: none;
+    margin: 15px auto 0;
+  }
+}
+
+.cart__checkout {
+  margin: 25px 0 0 25px;
+	padding: 10px 15px;
+	background-color: #fff;
+	border: 2px solid $orange;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:before {
+  	background-color: $orange;
+  }
+}

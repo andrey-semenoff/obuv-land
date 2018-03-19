@@ -1,0 +1,117 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Женская обувь',
+				link: 'catalog.html'
+			},
+			{
+				name: 'Кроссовки Desun M829 (37-41)',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+
+		// ====== product ======= 
+		.product
+			.product-photos
+				.product-photos-main
+					a.product-photos-main__img-holder(href="/img/products/product_1.jpg")
+						img.product-photos-main__img(src="/img/products/product_1.jpg", alt="")
+
+				.product-photos-more
+					.jcarousel
+						ul.product-photos-more__list
+							li.product-photos-more__img-holder.active(data-index="0")
+								img.product-photos-more__img(src="/img/products/product_1.jpg", alt="")
+							li.product-photos-more__img-holder(data-index="1")
+								img.product-photos-more__img(src="/img/products/product_2.jpg", alt="")
+							li.product-photos-more__img-holder(data-index="2")
+								img.product-photos-more__img(src="/img/products/product_3.jpg", alt="")
+							li.product-photos-more__img-holder(data-index="3")
+								img.product-photos-more__img(src="/img/products/product_4.jpg", alt="")
+							li.product-photos-more__img-holder(data-index="4")
+								img.product-photos-more__img(src="/img/products/product_5.jpg", alt="")
+							li.product-photos-more__img-holder(data-index="5")
+								img.product-photos-more__img(src="/img/products/product_6.jpg", alt="")
+					.jcarousel-nav.jcarousel-nav_prev
+						.icon.icon-arrow_slider
+					.jcarousel-nav.jcarousel-nav_next
+						.icon.icon-arrow_slider
+					.jcarousel-pagination
+
+			.product-desc
+				.product-name Кроссовки Desun M829 (37-41)
+				.product-params
+					.product-status Есть в наличии
+					.product-code Код товара:234 567
+					.product-body-m
+						p Кол-во пар: 8
+						p Размер: 36-40
+						p Бренд: CLASSICA
+						p Пол: Женский
+						a.show-all(href="#") Показать все характеристики
+
+				.product-params
+					.product-colors
+						span Цвет:
+						select.product-colors__select
+							option.product-colors__option(value="0") Синий
+							option.product-colors__option(value="1") Красный
+							option.product-colors__option(value="2") Черный
+							option.product-colors__option(value="3") Белый
+				
+					.product-sizes
+						a.show-all(href="#") Таблица размеров
+						.product-size.active 42-170
+						.product-size 42-170
+						.product-size 42-170
+				
+					.product-amount
+						span Количество <br> упаковок
+						._row.product-amount-changer
+							.product-amount-changer__btn(data-action="-")
+								.icon.icon-minus
+							input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
+							.product-amount-changer__btn(data-action="+")
+								.icon.icon-plus
+					
+					.product-prices
+						.product-prices__pair Цена за пару: 285 грн.
+						.product-prices__pack Цена за ящик: 
+							span 1710 
+							| грн.
+				
+				.product-buttons
+					a.button.hvr-sweep-to-right.product-button__buy(href="#cart_popup" data-fancybox-group) Купить
+
+		
+
+		// ====== category ======= 
+		.category.category_sale
+			.title
+				.title__inner Похожие товары
+			.owl-carousel.category__carousel
+				- var i = 0
+				while i < 7
+					.carousel__item
+						include ../section/product-mini
+
+		// ====== category ======= 
+		.category.category_sale
+			.title
+				.title__inner Рекомендуем также
+			.owl-carousel.category__carousel
+				- var i = 0
+				while i < 7
+					.carousel__item
+						include ../section/product-mini
+
