@@ -20,6 +20,7 @@ $(function () {
     items:2,
     loop:true,
     margin:10,
+    rewind: false,
   	smartSpeed: 1000,
   	nav: true,
   	navText: [
@@ -40,6 +41,7 @@ $(function () {
     items: 5,
     loop: true,
     margin: 30,
+    rewind: false,
     smartSpeed: 1000,
     nav: true,
     navText: [
@@ -53,6 +55,7 @@ $(function () {
     items: 6,
     loop: true,
     margin: 30,
+    rewind: false,
     smartSpeed: 1000,
     nav: true,
     navText: [
@@ -66,6 +69,7 @@ $(function () {
     items: 3,
     loop: true,
     margin: 30,
+    rewind: false,
     smartSpeed: 1000,
     nav: true,
     navText: [
@@ -79,6 +83,7 @@ $(function () {
     items: 6,
     loop: true,
     margin: 30,
+    rewind: false,
     smartSpeed: 1000,
     nav: true,
     navText: [

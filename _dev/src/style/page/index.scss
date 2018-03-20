@@ -4,6 +4,10 @@
 	width: 100%;
 	margin-top: 0;
 
+	.owl-item.active.center {
+		overflow: hidden;
+	}
+
 	.carousel__item {
 		height: 580px;
 		transition: .5s;
