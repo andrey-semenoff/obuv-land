@@ -1,0 +1,181 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Женская одежда',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+		.title
+			.title__inner Женская одежда
+
+		// ====== catalog ======= 
+		.catalog
+			form.catalog-filters#form_filters
+				// ====== filter type ======= 
+				.filter
+					ul.filter-list
+						- var j = 0
+						while j < 15
+							- j++
+							li.filter-item
+								a.filter-link(href="#") Демисезонная женская обувь
+				
+				// ====== filter brend ======= 
+				.filter.filter_brend
+					a.filter-title(href="#")
+						| Бренд
+						button.button
+							.icon.icon-minus
+
+					.filter__inner
+
+						.filter-alfabet
+							a.filter-alfabet__item(href="#")
+						
+						ul.filter-list
+							- var j = 0
+							while j < 10
+								- j++
+								li.filter-item
+									label.filter-label#filter181(pid="169-181" url="belyy181")
+										span.filter-label__text
+											.icon-holder
+												i.icon.icon-check
+											span.filter-label__name
+												span HOLASO 
+												| (#{j*12})
+										input.filter-input(type="checkbox" name="f_filters[]")
+
+				// ====== filter group ======= 
+				.filter.filter_group
+					a.filter-title(href="#")
+						| Группа товаров
+						button.button
+							.icon.icon-minus
+
+					.filter__inner
+						ul.filter-list
+							- var j = 0
+							while j < 10
+								- j++
+								li.filter-item
+									label.filter-label#filter181(pid="169-181" url="belyy181")
+										span.filter-label__text
+											.icon-holder
+												i.icon.icon-check
+											span.filter-label__name
+												span Зимняя женская обувь
+												| (#{j*12})
+										input.filter-input(type="checkbox" name="f_filters[]")
+
+				// ====== filter size ======= 
+				.filter.filter_size
+					a.filter-title(href="#")
+						| Размер
+						button.button
+							.icon.icon-plus
+					
+					.filter__inner(style="display: none;")
+						ul.filter-list
+							- var j = 0
+							while j < 10
+								- j++
+								li.filter-item
+									label.filter-label#filter181(pid="169-181" url="belyy181")
+										span.filter-label__text
+											.icon-holder
+												i.icon.icon-check
+											span.filter-label__name
+												span #{j+35}
+										input.filter-input(type="checkbox" name="f_filters[]")
+
+				// ====== filter color ======= 
+				.filter.filter_color
+					a.filter-title(href="#")
+						| Цвет
+						button.button
+							.icon.icon-plus
+					
+					.filter__inner(style="display: none;")
+						ul.filter-list
+							- var j = 0
+							while j < 10
+								- j++
+								li.filter-item
+									label.filter-label#filter181(pid="169-181" url="belyy181")
+										span.filter-label__text
+											.icon-holder
+												i.icon.icon-check
+											span.filter-label__name
+												span Белый
+										input.filter-input(type="checkbox" name="f_filters[]")
+
+
+				// ====== filter country ======= 
+				.filter.filter_country
+					a.filter-title(href="#")
+						| Страна-производитель
+						button.button
+							.icon.icon-plus
+					
+					.filter__inner(style="display: none;")
+						ul.filter-list
+							- var j = 0
+							while j < 10
+								- j++
+								li.filter-item
+									label.filter-label#filter181(pid="169-181" url="belyy181")
+										span.filter-label__text
+											.icon-holder
+												i.icon.icon-check
+											span.filter-label__name
+												span Украина
+										input.filter-input(type="checkbox" name="f_filters[]")
+
+			.catalog-body
+				.catalog-body-params
+					.catalog-body-filters
+						a.catalog-body-filter(href="#") BG
+						a.catalog-body-filter(href="#") Туфли
+						a.catalog-body-filter.reset(href="#") сбросить все
+
+					.catalog-sort
+						span Сортировать по:
+						select.catalog-sort__select
+							option.catalog-sort__option(value="1") Алфавиту (А-Я)
+							option.catalog-sort__option(value="2") Алфавиту (Я-А)
+							option.catalog-sort__option(value="3") Цене (возрастание)
+							option.catalog-sort__option(value="4") Цене (убывание)
+				
+				.catalog-body-products
+					- var i = 0
+					while i < 15
+						include ../section/product-mini
+
+
+				.paging
+					ul.paging__list
+						li.paging__item.paging__item_prev
+							a.paging__link(href="#")
+								.fa.fa-chevron-left
+						li.paging__item.active
+							a.paging__link(href="#") 1
+						li.paging__item
+							a.paging__link(href="#") 2
+						li.paging__item
+							a.paging__link(href="#") 3
+						li.paging__item
+							a.paging__link(href="#") 4
+						li.paging__item.paging__item_next
+							a.paging__link(href="#")
+								.fa.fa-chevron-right

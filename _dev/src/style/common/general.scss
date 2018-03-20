@@ -208,7 +208,8 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
 .select-custom,
 .product-colors__select-custom,
 .chekout-delivery__select-custom,
-.chekout-payment__select-custom {
+.chekout-payment__select-custom,
+.catalog-sort__select-custom {
   position: relative;
   min-width: 140px;
   max-width: 40%;
@@ -398,4 +399,41 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
 /*! --- modals --- */
 .modals {
   display: none;
+}
+
+
+/*! --- paging --- */
+.paging {
+  margin: 50px 0;
+
+  &__list {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.active .paging__link {
+      background-color: $orange;
+      border-color: $orange;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    border: 1px solid #ececec;
+    padding: 15px 20px;
+    color: #575757;
+
+    &:hover {
+      background-color: $orange;
+      border-color: $orange;
+    }
+  }
 }

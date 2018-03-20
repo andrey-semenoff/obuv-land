@@ -116,14 +116,28 @@ $(function () {
       select: '.chekout-payment__select',
       el: 'chekout-payment__select-custom' 
     },
+    {
+      select: '.catalog-sort__select',
+      el: 'catalog-sort__select-custom' 
+    },
   ]);
 
   // custom scroll bar brands
-  if( $('.brands-list').length ) {
-    new SimpleBar(document.querySelector('.brands-list'), { 
-      autoHide: false
-    });
-  }
+  var lists_simplebars = [
+    '.brands-list',
+    '.filter-list'
+  ];
+
+  lists_simplebars.forEach(function(list_collection) {
+    if( $(list_collection).length ) {
+      $(list_collection).each(function() {
+        new SimpleBar($(this)[0], { 
+          autoHide: false
+        });
+      })
+    }
+  });
+
 
   // switch tabs in cabinet
   if( $('.cabinet').length ) {
@@ -231,6 +245,75 @@ $(function () {
     $(this).addClass('active').siblings().removeClass('active');
   });
 
+  // generate alphabet
+  if( $('.filter-alfabet__item').length ) {
+    $('.filter-alfabet__item').each(function() {
+      var $this = $(this),
+          $list = $this.parent();
+
+      generate_alfabet($this, $list);
+    });
+  }
+
+  // Wrap|unwrap filter group
+  $('.filter-title').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this),
+        $inner = $this.siblings('.filter__inner');
+
+    $inner.slideToggle();
+    $this.find('.icon').toggleClass('icon-plus icon-minus');
+  });
+
+  // Switch filters
+  $('.filter-input').on('change', function(e) {
+    var $this = $(this),
+        $filter_reset = $('.catalog-body-filter.reset'),
+        $catalog_body_filter = $('.catalog-body-filter'),
+        $label = $this.closest('.filter-label'),
+        $name = $this.siblings('.filter-label__text').find('.filter-label__name span');
+    
+    $label.toggleClass('active');
+    
+    if( $this.is(':checked') ) {
+      var $filter = $('<a href="#" class="catalog-body-filter">'+ $name.text() +'</a>');
+      $filter_reset.before($filter);
+      $filter_reset.show();
+    } else {
+      $('.catalog-body-filter').not('.reset').each(function() {
+        if( $(this).text() == $name.text() ) {
+          $(this).remove();
+        }
+      })
+
+      if( !$('.catalog-body-filter').not('.reset').length ) {
+        $filter_reset.hide();
+      }
+
+    }
+
+  });
+
+
+  // Reset filters
+  $('.catalog-body-filter.reset').on('click', function(e) {
+    e.preventDefault();
+
+    $('.catalog-body-filter').not('.reset').each(function() {
+      $(this).remove();
+    });
+
+    $('.filter-label.active').click();
+
+    $(this).hide();
+
+    $('html, body').animate({
+      scrollTop: 0
+    }, 0);
+  })
+
+
+
   // next script
 
 });
@@ -309,3 +392,26 @@ function make_custom_select(collections) {
   });
 }
 
+function generate_alfabet($this, $list) {
+  // console.log(String.fromCharCode(1040, 1071));
+  var alfabets = [
+        {
+          start: 65,
+          end: 90
+        },
+        {
+          start: 1040,
+          end: 1071
+        }
+    ];
+
+  alfabets.forEach(function(lang) {
+    for( var i = lang.start; i <= lang.end; i++ ) {
+      var $item = $this.clone();
+      $item.text(String.fromCharCode(i));
+      $list.append($item);
+    }
+  });
+
+  $this.detach();
+}

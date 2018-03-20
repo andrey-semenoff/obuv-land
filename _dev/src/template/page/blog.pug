@@ -43,17 +43,19 @@ block content
 									.carousel__item
 										include ../section/product-mini
 
-			.paging
-				ul.paging__list
-					li.paging__item.paging__item_prev
-						a.paging__link(href="#")
-					li.paging__item
-						a.paging__link(href="#") 1
-					li.paging__item
-						a.paging__link(href="#") 2
-					li.paging__item
-						a.paging__link(href="#") 3
-					li.paging__item
-						a.paging__link(href="#") 4
-					li.paging__item.paging__item_next
-						a.paging__link(href="#")
+				.paging
+					ul.paging__list
+						li.paging__item.paging__item_prev
+							a.paging__link(href="#")
+								.fa.fa-chevron-left
+						li.paging__item.active
+							a.paging__link(href="#") 1
+						li.paging__item
+							a.paging__link(href="#") 2
+						li.paging__item
+							a.paging__link(href="#") 3
+						li.paging__item
+							a.paging__link(href="#") 4
+						li.paging__item.paging__item_next
+							a.paging__link(href="#")
+								.fa.fa-chevron-right
