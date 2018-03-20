@@ -206,7 +206,9 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
 
 // select-custom
 .select-custom,
-.product-colors__select-custom {
+.product-colors__select-custom,
+.chekout-delivery__select-custom,
+.chekout-payment__select-custom {
   position: relative;
   min-width: 140px;
   max-width: 40%;
@@ -247,14 +249,14 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
   &__list {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 106%;
     left: 0;
-    right: 0;
+    right: -7px;
     z-index: 1;
     min-width: 145px;
-    width: max-content;
+    min-width: max-content;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 1px solid #ececec;
   }
   
   &__item {

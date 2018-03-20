@@ -73,8 +73,24 @@ $(function () {
   }
 
   // custom select in search bar header
-  make_custom_select('.form-search__select', 'select-custom');
-  make_custom_select('.product-colors__select', 'product-colors__select-custom');
+  make_custom_select([
+    {
+      select: '.form-search__select',
+      el: 'select-custom' 
+    },
+    {
+      select: '.product-colors__select',
+      el: 'product-colors__select-custom' 
+    },
+    {
+      select: '.chekout-delivery__select',
+      el: 'chekout-delivery__select-custom' 
+    },
+    {
+      select: '.chekout-payment__select',
+      el: 'chekout-payment__select-custom' 
+    },
+  ]);
 
   // custom scroll bar brands
   if( $('.brands-list').length ) {
@@ -167,7 +183,7 @@ $(function () {
   $('.product-amount-changer__btn').on('click', function() {
     var $this = $(this),
         action = $this.data('action'),
-        $input = $('.product-amount-changer__input'),
+        $input = $this.siblings('.product-amount-changer__input'),
         val = parseInt($input.val());
 
     if ( action == '+' ) {
@@ -182,6 +198,11 @@ $(function () {
 
     $input.val(val)
 
+  });
+
+  // select product size
+  $('.product-size').on('click', function() {
+    $(this).addClass('active').siblings().removeClass('active');
   });
 
   // next script
@@ -219,40 +240,46 @@ function open_fancy() {
 
 
 //
-function make_custom_select(select, el) {
-  var $select = $(select);
+function make_custom_select(collections) {
 
-  $select.wrap("<div class='" + el + "'></div>");
-  $select.hide();
+  collections.forEach(function(collection) {
 
-  var $el = $('.' + el);
+    var $select = $(collection.select),
+        el = collection.el;
 
-  $el.append('<div class="'+ el + '__selected"></div><div class="'+ el + '__list"></div>');
-  
-  $select.children().each(function() {
-    var index = $(this).val();
-    $('.' + el + '__list').append('<div class="'+ el + '__item" data-id="'+index+'">' + $(this).text() + '</div>');
+    $select.wrap("<div class='" + el + "'></div>");
+    $select.hide();
+
+    var $el = $('.' + el);
+
+    $el.append('<div class="'+ el + '__selected"></div><div class="'+ el + '__list"></div>');
+    
+    $select.children().each(function() {
+      var index = $(this).val();
+      $('.' + el + '__list').append('<div class="'+ el + '__item" data-id="'+index+'">' + $(this).text() + '</div>');
+    });
+    
+    $('.' + el + '__selected').html($('.' + el + '__item').first().html());  
+    
+    $(document).on('click', '.' + el, function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $('.' + el + '__list').slideToggle();
+      $('.' + el).toggleClass('show');
+      $('[class*="select-custom"]').not('.' + el).removeClass('show');
+      $('[class*="select-custom"] [class*="__list"]').not('.' + el + '__list').slideUp();
+    });  
+
+    $(document).on('click', function () {
+      if( $('.' + el).hasClass('show') ) {
+        $('.' + el + '__list').slideUp();
+        $('.' + el).removeClass('show');
+      }
+    });
+
+    $(document).on('click', '.' + el + '__item', function (e) {
+      $('.' + el + '__selected').html($(this).html());
+    });
   });
-  
-  $('.' + el + '__selected').html($('.' + el + '__item').first().html());  
-  
-  $(document).on('click', '.' + el, function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $('.' + el + '__list').slideToggle();
-    $('.' + el).toggleClass('show');
-  });  
-
-  $(document).on('click', function () {
-    if( $('.' + el).hasClass('show') ) {
-      $('.' + el + '__list').slideUp();
-      $('.' + el).removeClass('show');
-    }
-  });
-
-  $(document).on('click', '.' + el + '__item', function (e) {
-    $('.' + el + '__selected').html($(this).html());
-  });
-
 }
 
