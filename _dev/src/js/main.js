@@ -60,6 +60,32 @@ $(function () {
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
     ]
   })
+  
+  // categoriy_sale on main
+  $('.blog-item__carousel').owlCarousel({
+    items: 3,
+    loop: true,
+    margin: 30,
+    smartSpeed: 1000,
+    nav: true,
+    navText: [
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
+    ]
+  })
+
+  // categoriy_sale on main
+  $('.article__carousel').owlCarousel({
+    items: 6,
+    loop: true,
+    margin: 30,
+    smartSpeed: 1000,
+    nav: true,
+    navText: [
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
+      "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
+    ]
+  })
 
   // dropdown toggle
   if( $('.dropdown').length ) {
@@ -161,7 +187,7 @@ $(function () {
   });
 
   // open cart
-  $(".product-button__buy").fancybox({
+  $(".product-button__buy, .hotlinks-link_basket").fancybox({
     fitToView : false,
     autoSize  : false,
     closeClick  : false,

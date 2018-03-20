@@ -13,6 +13,10 @@
   }
 }
 
+@mixin fit($type: cover) {
+  object-fir: $type;
+}
+
 @mixin v-align-child ($valine: middle) {
   display: inline-block;
   vertical-align: $valine;

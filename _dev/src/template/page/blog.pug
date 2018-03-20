@@ -1,0 +1,59 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Блог',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+
+		.title
+			.title__inner Блог
+
+		// ====== blog ======= 
+		.blog
+			ul.blog-list
+				- var j = 0
+				while j < 6
+					- j++
+					li.blog-item
+						.blog-item__main
+							a.blog-item__photo-holder(href="article.html")
+								img.blog-item__photo(src="/img/blog/blog_1.jpg", alt="blog")
+							.blog-item__desc
+								.blog-item__date 22 января 2018
+								.blog-item__name Что можно найти на нашем сайте?
+								.blog-item__body Малыши растут очень быстро, а их активный и образ жизни только ускоряет необходимость в смене детского гардероба. Покупка обуви для ребенка – ответственное предприятие: нужно учесть очень много факторов, и не забывать обращать внимание на детали. Так, при заказе детской обуви мало проверить размер и ширину подошвы. Нужно также знать все о материале, из которого сделана пара; отвечает ли она современным эргономичным и ...
+								.blog-item__links
+									a.blog-item__link(href="article.html") подробнее
+									
+						.blog-item__slider
+							.owl-carousel.blog-item__carousel
+								- var i = 0
+								while i < 7
+									.carousel__item
+										include ../section/product-mini
+
+			.paging
+				ul.paging__list
+					li.paging__item.paging__item_prev
+						a.paging__link(href="#")
+					li.paging__item
+						a.paging__link(href="#") 1
+					li.paging__item
+						a.paging__link(href="#") 2
+					li.paging__item
+						a.paging__link(href="#") 3
+					li.paging__item
+						a.paging__link(href="#") 4
+					li.paging__item.paging__item_next
+						a.paging__link(href="#")

@@ -185,10 +185,12 @@
 	&__name {
 		color: #171717;
 		font: 14px $TrebuchetMS-Bold;
+		text-align: center;
 	}
 
 	&__price {
-		margin-top: 5px;
+						margin-top: 10px;
+				text-align: center;
 	}
 
 	&__buttons {
