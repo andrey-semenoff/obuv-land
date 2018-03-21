@@ -12,6 +12,25 @@ header.header {
 		flex-flow: row nowrap;
 		align-items: center;
 		margin-top: 15px;
+
+		@include media(1350) {
+			font-size: 14px;
+		}
+
+		@include media(700) {
+			align-items: flex-end;
+			flex-direction: column;
+			margin-top: 5px;
+			padding-right: 10px;
+		}
+
+		@include media(480) {
+			padding: 0 10px 20px;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+		}
 	}
 }
 
@@ -19,17 +38,64 @@ header.header {
 	padding: 0 15px;
 }
 
-
-.burger {
-
-}
-
 .menu {
+	position: relative;
 	float: left;
+
+	@include media(1350) {
+		font-size: 12px;
+	}
+	@include media(480) {
+		float: none;
+		text-align: center;
+	}
 
 	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
+
+		@include media(1200) {
+			opacity: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			transform: translateX(-100%);
+			height: 100vh;
+			width: 100vw;
+			flex-direction: column;
+			padding-top: 50px;
+			font-size: 16px;
+			background: linear-gradient(to right, #f8f8f8 50%, rgba($orange, 0.8));
+			transition: .5s;
+		}
+	}
+
+	&.show {
+		width: 100%;
+		height: 48px;
+
+		.menu-list[class] {
+			@include media(1200) {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+
+		.burger {
+			@include media(1200) {
+				position: fixed;
+				padding: 5px 15px;
+	
+				span {
+					display: none;
+				}
+				.icon {
+					display: block;
+				}
+			}
+
+		}
 	}
 
 	&-item {
@@ -49,6 +115,26 @@ header.header {
 
 		&:hover {
 			color: $green;
+		}
+	}
+
+
+	.burger {
+		display: none;
+		@extend .menu-link;
+		font-size: 16px;
+		color: $green;
+		position: relative;
+		z-index: 7999;
+			cursor: pointer;
+		
+		.icon {
+			display: none;
+			transform: scale(0.5);
+		}
+
+		@include media(1200) {
+			display: block;
 		}
 	}
 
@@ -88,6 +174,20 @@ header.header {
 			border-top: none;
 			border-bottom: 5px solid #000;
 		}
+	}
+}
+
+.dropdown-group {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+
+	@include media(700) {
+		margin-top: 10px;
+		order: 2;
 	}
 }
 
@@ -138,6 +238,17 @@ header.header {
 	margin-left: 45px;
 	padding-right: 15px;
 
+
+	@include media(700) {
+		order: 3;
+		margin: 15px 0;
+	}
+
+
+	@include media(480) {
+		margin: 10px 0 0;
+	}
+
 	&-list[class] {
 
 	}
@@ -161,6 +272,16 @@ header.header {
 	align-items: center;
 	margin-left: 15px;
 	padding-right: 15px;
+
+	@include media(700) {
+		order: 1;
+		padding: 0;
+	}
+
+	@include media(480) {
+		flex-basis: 100%;
+		justify-content: center;
+	}
 
 	&-list[class] {
 		display: flex;
@@ -189,13 +310,31 @@ header.header {
 
 .header-main {
 	display: flex;
-	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: nowrap;
+
+	@include media(992) {
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+	@include media(640) {
+		flex-direction: column;
+		justify-content: center;
+	}
 }
+
 
 .logo {
 	margin: 20px 40px;
+
+	@include media(1280) {
+		margin-left: 0;
+	}
+
+	@include media(992) {
+		flex-basis: 30%;
+	}
 
 	&-link {
 		display: inline-block;
@@ -214,6 +353,13 @@ header.header {
 	flex-flow: row nowrap;
 	justify-content: space-between;
 
+	@include media(992) {
+		flex-basis: 60%;
+	}
+
+	@include media(640) {
+		width: 100%;
+	}
 
 	&__input {
 		width: 70%;
@@ -248,16 +394,29 @@ header.header {
 }
 
 .hotlinks {
+	@include media(992) {
+		margin-bottom: 25px;
+	}
 
+	@include media(640) {
+		margin-top: 25px;
+	}
 
 	&-list[class] {
 		display: flex;
 		flex-flow: row nowrap;
 		text-align: center;
+
+		@include media(480) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 	}
 
 	&-item {
-
+		@include media(480) {
+			margin: 15px;
+		}
 	}
 
 	&-link {
@@ -299,11 +458,22 @@ header.header {
 .header-catalog {
 	padding: 0 15px;
 	background-color: $orange;
+		position: relative;
+
+	._container {
+	}
 
 	&-inner {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
+
+
+		& .header-catalog-list[class] {
+			@include media(992) {
+				display: none;
+			}
+		}
 	}
 
 	&-all {
@@ -326,6 +496,7 @@ header.header {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		text-align: center;
+
 	}
 
 	&-item {
@@ -350,6 +521,101 @@ header.header {
 		}
 	}
 
+	&-dropdown {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: $container-width;
+		background: lighten($orange, 20%) linear-gradient(to bottom, #333, transparent 5px);
+		z-index: 100;
+		padding: 10px 15px 25px;
+
+		& > .header-catalog-list {
+			@include media(992) {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		.header-catalog-link__text {
+			font-weight: bold;
+		}
+
+		.header-catalog-item {
+
+			&.parent {
+
+				.header-catalog-link {
+					position: relative;
+
+					&:after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						right: 0;
+						transform: translateY(-50%);
+						border-left: 6px solid #000;
+						border-top: 4px solid transparent;
+						border-bottom: 4px solid transparent;
+						transition: .5s;
+					}
+				}
+
+			}
+
+			&.open > .header-catalog-link {
+					&:after {
+						transform: rotate(90deg) translateX(-50%);
+						// border-top: 6px solid #000;
+						// border-left: 4px solid transparent;
+						// border-right: 4px solid transparent;
+					}
+				}
+			
+		}
+
+		.sublist {
+
+			&__item {
+				display: block;
+				text-align: left;	
+			}
+
+			&__link {
+				display: block;
+				padding: 5px 15px;
+				text-align: left;
+			}
+
+			.sublist[class] {
+				padding-left: 15px;
+
+				.sublist__link {
+					display: inline-block;
+					vertical-align: middle;
+
+					&:before {
+						content: '\2605';
+						display: inline-block;
+						vertical-align: middle;
+						margin-right: 10px;
+					}
+				}
+
+				.sublist[class] {
+
+					.sublist__link {
+						&:before {
+							content: '\2606';
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 
@@ -360,6 +626,11 @@ header.header {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		text-align: center;
+
+
+		@include media(480) {
+			display: none;
+		}
 	}
 
 	&-item {

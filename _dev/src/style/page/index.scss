@@ -5,7 +5,24 @@
 	margin-top: 0;
 
 	.owl-item.active.center {
-		overflow: hidden;
+		// overflow: hidden;
+		// min-width: 1000px;
+		z-index: 99999;
+
+			.carousel__item {
+				position: relative;
+
+				img {
+					@include center-translate();
+					width: 160%;
+					max-width: inherit;
+
+					@include media(640) {
+						width: auto;
+						max-width: 100%;
+					}
+				}
+			}
 	}
 
 	.carousel__item {
@@ -16,6 +33,14 @@
 			height: 30vw;
 		}
 
+		@include media(640) {
+			height: 50vw;
+		}
+
+		@include media(480) {
+			height: 80vw;
+		}
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -23,14 +48,14 @@
 		}
 
 		.carousel-text {
-			position: absolute;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			width: 50%;
-			font-size: 47px;
-			text-align: center;
-		  background: linear-gradient(to left, rgba(#fff, 0.9) 80%, transparent);
+	    position: absolute;
+	    right: -35%;
+	    top: 0;
+	    bottom: 0;
+	    width: 85%;
+	    font-size: 47px;
+	    text-align: center;
+	    background: linear-gradient(to left, transparent 0%, rgba(#fff, .8) 15%, rgba(#fff, .8) 85%, transparent 100%);
 
 			@include media(1700) {
 				font-size: 40px;
@@ -38,11 +63,18 @@
 			@include media(1400) {
 				font-size: 30px;
 			}
+			@include media(640) {
+				display: none;
+			}
 
 			&__inner {
 				@include center-translate();
 				left: 60%;
 				width: 100%;
+
+				@include media(768) {
+					font-size: 22px;
+				}
 			}
 		}
 
@@ -55,6 +87,11 @@
 			@include media(1100) {
 				padding: 10px 15px;
 				font-size: 18px;
+			}
+			@include media(768) {
+				font-size: 16px;
+				padding: 5px 10px;
+				border-width: 1px;
 			}
 
 			&:before {
@@ -72,14 +109,19 @@
 			transform: scale(0.8) !important;
 		}
 	}
-
+	
+	.owl-nav {
+		@include media(640) {
+			display: none;
+		}
+	}
 
 	.owl-nav button.owl-next, 
 	.owl-nav button.owl-prev {
 		top: 0;
 		bottom: 0;
 		transform: none;
-		width: 25%;
+		width: 12%;
 		outline: none;
 
 		.owl-nav_arrow {
@@ -107,12 +149,50 @@
 	  	transform: translateY(-50%) rotate(180deg);
 	  }
 	}
+
+	.owl-dots {
+		position: absolute;
+		bottom: 5px;
+		left: 50%;
+		transform: translateX(-50%);
+		
+		.owl-dot {
+			position: relative;
+			width: 15px;
+			height: 15px;
+			margin: 0 5px;
+			background-color: #353535;
+			border-radius: 50%;
+			box-shadow: 0 0 10px 5px #fff;
+			outline: none;
+
+			span {
+				opacity: 0;
+				@include center-absolute();
+				background-color: $green;
+				border-radius: 50%;
+				box-shadow: 0 0 10px 5px rgba($green, .8);
+			}
+
+			&.active, &:hover {
+				span {
+					opacity: 1;
+				}
+				// background-color: $green;
+			}
+		}
+	}
+
 }
 
 .category_group {
 	display: flex;
 	flex-flow: row nowrap;
 	margin-top: 50px;
+
+	@include media(1200) {
+		flex-direction: column;
+	}
 }
 
 .category {
@@ -120,6 +200,10 @@
 
 	&_new {
 		width: 80%;
+
+		@include media(1200) {
+			width: 100%;
+		}
 	}
 
 	&_sale {
@@ -133,6 +217,12 @@
 
 		.carousel__item {
 			padding: 5px;
+		}
+
+		.owl-nav {
+			@include media(480) {
+				display: none;
+			}
 		}
 
 		.owl-nav button.owl-next, 
@@ -164,6 +254,7 @@
 
 .product-mini {
 	padding: 10px;
+	text-align: center;
 
 	&:hover {
 		box-shadow: 0 0 10px #ccc;
@@ -193,8 +284,8 @@
 	}
 
 	&__price {
-						margin-top: 10px;
-				text-align: center;
+		margin-top: 10px;
+		text-align: center;
 	}
 
 	&__buttons {
@@ -232,6 +323,12 @@
 	width: 20%;
 	padding-left: 50px;
 
+	@include media(1200) {
+		width: 100%;
+		padding: 0;
+		margin-top: 25px;
+	}
+
 	.title {
 		width: 90%;
 	}
@@ -242,6 +339,18 @@
 	&-list[class] {
 		height: 325px;
 		margin-top: 50px;
+
+		@include media(1200) {
+			height: auto;
+			white-space: nowrap;
+			padding: 0 15px;
+		}
+
+		.simplebar-scroll-content {
+			@include media(1200) {
+				overflow-y: hidden;
+			}
+		}
 	}
 
 	&-item {
@@ -251,6 +360,13 @@
 		font-style: italic;
 		text-align: center;
 		text-shadow: 5px 5px 4px rgba(#000, .35);
+
+
+		@include media(1200) {
+			display: inline-block;
+			margin-right: 30px;
+			margin-bottom: 25px;
+		}
 
 		&__name {
 			font-size: 46px;
@@ -266,6 +382,10 @@
 	display: flex;
 	flex-flow: row nowrap;
 	margin-top: 10px;
+
+	@include media(768) {
+		flex-direction: column;
+	}
 }
 
 .infoblock {
@@ -293,6 +413,14 @@
 		object-fit: cover;
 		transition: .5s;
 	}
+
+
+	@include media(768) {
+		width: 100%;
+		margin: 25px 0;
+		height: 200px;
+	}
+
 }
 
 .category_sale {
@@ -307,6 +435,10 @@
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
+
+		@include media(768) {
+			flex-direction: column;
+		}
 	}
 
 	&-item {
@@ -323,6 +455,10 @@
 			position: relative;
 			height: 400px;
 			padding: 0 50px;
+
+			@include media(480) {
+				height: 250px;
+			}
 		}
 	}
 	
@@ -338,6 +474,13 @@
 		font: 40px $TrebuchetMS-Bold;
 		line-height: 110px;
 		text-align: center;
+
+		@include media(480) {
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			font-size: 30px;
+		}
 	}
 	
 	&-title {
@@ -353,7 +496,17 @@
 	margin: 50px 0 100px;
 	padding: 0 15px;
 
+
+	@include media(1170) {
+		float: none;
+		width: 100%;
+	}
+
 	&:first-child {
 		padding-right: 30px;
+
+		@include media(1170) {
+			padding-right: 15px;
+		}
 	}
 }

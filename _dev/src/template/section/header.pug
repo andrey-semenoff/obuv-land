@@ -5,6 +5,9 @@ header.header
 			._row
 				.menu
 					.burger
+						span Меню
+						i.icon.icon-arrow_slider
+
 					ul.menu-list
 						li.menu-item.menu-item_active
 							a.menu-link(href="/index.html") Главная
@@ -24,20 +27,21 @@ header.header
 							a.menu-link(href="/contacts.html") контакты
 				
 				.header-top__right
-					.language.dropdown
-						ul.language-list
-							li.language-item
-								a.language-link(href="#") рус
-							li.language-item
-								a.language-link(href="/ua") укр
+					.dropdown-group
+						.language.dropdown
+							ul.language-list
+								li.language-item
+									a.language-link(href="#") рус
+								li.language-item
+									a.language-link(href="/ua") укр
 
 
-					.currency.dropdown
-						ul.currency-list
-							li.currency-item
-								a.currency-link(href="#") UAH
-							li.currency-item
-								a.currency-link(href="#") USD
+						.currency.dropdown
+							ul.currency-list
+								li.currency-item
+									a.currency-link(href="#") UAH
+								li.currency-item
+									a.currency-link(href="#") USD
 
 					.phones.dropdown
 						ul.phones-list
@@ -81,7 +85,7 @@ header.header
 					li.hotlinks-item
 						a.hotlinks-link(href="/cabinet.html")
 							span.icon.icon-cabinet
-							.hotlinks-text Мой кабинет
+							.hotlinks-text Кабинет
 					li.hotlinks-item
 						a.hotlinks-link(href="/cabinet.html#orders")
 							span.icon.icon-orders
@@ -139,3 +143,51 @@ header.header
 						a.header-status-link(href="catalog.html")
 							i.icon.icon-sale
 							span.header-status-link__text Уценка
+			
+			.header-catalog-dropdown(style="display: none;")
+				ul.header-catalog-list
+					li.header-catalog-item.parent
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Детская обувь
+						ul.sublist(style="display: none;")
+							li.sublist__item.header-catalog-item.parent
+								a.header-catalog-link.sublist__link(href="#") Демисезонная
+								ul.sublist(style="display: none;")
+									li.header-catalog-item.sublist__item.parent
+										a.header-catalog-link.sublist__link(href="#") 34
+										ul.sublist(style="display: none;")
+											li.sublist__item
+												a.sublist__link(href="#") 34-1
+											li.sublist__item
+												a.sublist__link(href="#") 35-1
+											li.sublist__item
+												a.sublist__link(href="#") 36-1
+											li.sublist__item
+												a.sublist__link(href="#") 37-1
+									li.sublist__item
+										a.sublist__link(href="#") 35
+									li.sublist__item
+										a.sublist__link(href="#") 36
+									li.sublist__item
+										a.sublist__link(href="#") 37
+							li.sublist__item
+								a.sublist__link(href="#") Демисезонная
+							li.sublist__item
+								a.sublist__link(href="#") Демисезонная
+							li.sublist__item
+								a.sublist__link(href="#") Демисезонная
+					li.header-catalog-item
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Подростковая обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Женская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Мужская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Украинская обувь
+					li.header-catalog-item
+						a.header-catalog-link(href="catalog.html")
+							span.header-catalog-link__text Летняя обувь

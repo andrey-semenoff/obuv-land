@@ -1,20 +1,22 @@
 /*! ===== product ===== */
 .product {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-
 	padding: 0 15px;
 
 	&-photos {
+		float: left;
 		width: 40%;
 		display: -webkit-flex;
 		display: -moz-flex;
 		display: -ms-flex;
 		display: -o-flex;
 		display: flex;
+
+
+    @include media(992) {
+      float: none;
+      width: 100%;
+      margin-top: 15px;
+    }
 
 		&-main {
 			width: 80%;
@@ -106,16 +108,29 @@
 	}
 
 	&-desc {
-		width: 60%;
-		padding-left: 30px;
+		float: right;
+		width: 58%;
 		font-size: 14px;
+
+    @include media(992) {
+      float: none;
+      width: 100%;
+      margin-top: 25px;
+    }
 	}
 
 	&-name {
+		width: 58%;
+		float: right;
 		padding: 10px 15px;
 		background-color: #f7f7f7;
 		font: 22px $TrebuchetMS-Bold;
 		text-transform: uppercase;
+
+    @include media(992) {
+      float: none;
+      width: 100%;
+    }
 	}
 
 	&-status {

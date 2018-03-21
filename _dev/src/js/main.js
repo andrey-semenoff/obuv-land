@@ -17,22 +17,32 @@ $(function () {
 
   $slider_main.owlCarousel({
     center: true,
-    items:2,
-    loop:true,
-    margin:10,
-    rewind: false,
+    loop: true,
+    // autoWidth: true,
+    margin: 10,
+    // rewind: false,
   	smartSpeed: 1000,
   	nav: true,
   	navText: [
   		"<i class='icon icon-arrow_slider owl-nav_arrow'></span>",
   		"<i class='icon icon-arrow_slider owl-nav_arrow'></span>"
-  	]
+  	],
+    responsive: {
+      640: {
+        items: 2
+      },
+
+      0: {
+        center: false,
+        items: 1
+      }
+    }
   }).on('translate.owl.carousel', function (e) {
       $(".slider_main").find('.owl-item').removeClass('mini');
   }).on('translated.owl.carousel', function (e) {
     if( $(window).width() > 992 ) {
       $(".slider_main").find('.owl-item').addClass('mini');
-      $(".slider_main").find('.owl-item.active').eq(0).removeClass('mini');
+      $(".slider_main").find('.owl-item.center').removeClass('mini');
     }
   });
 
@@ -47,7 +57,24 @@ $(function () {
     navText: [
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
-    ]
+    ],
+    responsive: {
+      1200: {
+        items: 5
+      },
+      768: {
+        items: 4
+      },
+      640: {
+        items: 3
+      },
+      480: {
+        items: 2
+      },
+      0: {
+        items: 1
+      }
+    }
   })
 
   // categoriy_sale on main
@@ -61,7 +88,27 @@ $(function () {
     navText: [
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
-    ]
+    ],
+    responsive: {
+      1200: {
+        items: 6
+      },
+      992: {
+        items: 5
+      },
+      768: {
+        items: 4
+      },
+      640: {
+        items: 3
+      },
+      480: {
+        items: 2
+      },
+      0: {
+        items: 1
+      }
+    }
   })
   
   // categoriy_sale on main
@@ -75,7 +122,21 @@ $(function () {
     navText: [
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
-    ]
+    ],
+    responsive: {
+      1200: {
+        items: 3
+      },
+      992: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      0: {
+        items: 1
+      }
+    }
   })
 
   // categoriy_sale on main
@@ -89,7 +150,27 @@ $(function () {
     navText: [
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>",
       "<i class='icon icon-arrow_go owl-nav_arrow'></span>"
-    ]
+    ],
+    responsive: {
+      1200: {
+        items: 6
+      },
+      992: {
+        items: 5
+      },
+      768: {
+        items: 4
+      },
+      640: {
+        items: 3
+      },
+      480: {
+        items: 2
+      },
+      0: {
+        items: 1
+      }
+    }
   })
 
   // dropdown toggle
@@ -206,7 +287,7 @@ $(function () {
   });
 
   // open cart
-  $(".product-button__buy, .hotlinks-link_basket").fancybox({
+  $(".product-button__buy, .hotlinks-link_basket, .catalog-body-open_filters").fancybox({
     fitToView : false,
     autoSize  : false,
     closeClick  : false,
@@ -317,6 +398,51 @@ $(function () {
     }, 0);
   })
 
+
+  // toggle header catalogs
+  $('.header-catalog-all').on('click', function(e) {
+    e.preventDefault();
+
+    $('.header-catalog-dropdown').slideToggle();
+  });
+
+  // toggle submenues in catalog dropdown
+  $('.header-catalog-dropdown .header-catalog-link').on('click', function(e) {
+    e.preventDefault();
+
+    $(this).parent().toggleClass('open').end().siblings('.sublist').slideToggle();
+  });
+
+
+  // burger toggle menu
+  $(document).on('click', '.burger', function(e) {
+    var $this = $(this),
+        $menu = $('.menu'),
+        $burger = $menu.children('.burger');
+
+    $menu.toggleClass('show');
+
+  });
+
+
+  // show|hide filters on mobile
+  $(document).on('click', '.catalog-body-open_filters', function(e) {
+    e.preventDefault();
+
+
+  })
+
+  // windows resize
+  $(window).resize(function() {
+    var width = $(this).outerWidth();
+
+    if( width >= 992 ) {
+      $.fancybox.close();
+      $('.catalog .catalog-filters').show();
+    } else {
+      $('.catalog .catalog-filters').hide();
+    }
+  });
 
 
   // next script

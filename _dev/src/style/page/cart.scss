@@ -138,7 +138,8 @@
 
 .cart__list {
   max-height: 380px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .cart__item {
@@ -273,6 +274,7 @@
 	display: -o-flex;
 	display: flex;
 	justify-content: center;
+  align-items: center;
 }
 
 
@@ -308,7 +310,19 @@
 
   #cart_popup .cart__checkout {
     float: none;
-    margin: 15px auto 0;
+    margin: 25px auto 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  #cart_popup .cart__buttons {
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+
+  .cart__close {
+    margin-left: 0;
   }
 }
 
@@ -319,6 +333,8 @@
 	border: 2px solid $orange;
   cursor: pointer;
   transition: all 0.5s;
+
+
 
   &:before {
   	background-color: $orange;

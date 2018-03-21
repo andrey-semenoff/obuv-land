@@ -13,6 +13,17 @@
 			height: max-content;
 			margin: 0 0 15px 0;
 			border-right: 15px solid #fff;
+
+			@include media(992) {
+				float: none;
+				width: 50%;
+				margin: auto;
+			}
+			@include media(768) {
+				width: 100%;
+				margin: 0;
+				border: none;
+			}
 		}
 	}
 	
@@ -26,7 +37,9 @@
 	}
 
 	&-body {
-
+		@include media(640) {
+			text-align: justify;
+		}
 	}
 
 	&__carousel {
@@ -46,6 +59,12 @@
 			display: none;
 		}
 
+		.owl-nav {
+			@include media(480) {
+				display: none;
+			}
+		}
+
 		.owl-nav button.owl-next,
 		.owl-nav button.owl-prev {
 	    transform: translateY(-50%);
@@ -62,6 +81,10 @@
 	  .owl-nav button.owl-prev {
 	  	left: -50px;
 
+			@include media(768) {
+				left: -30px;
+			}
+
 	  	.icon {
 	  		transform: rotate(180deg);
 	  	}
@@ -69,6 +92,10 @@
 
 	  .owl-nav button.owl-next {
 	  	right: -50px;
+
+			@include media(768) {
+				right: -30px;
+			}
 	  }
 	}
 

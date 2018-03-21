@@ -323,6 +323,15 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
 
     &:last-child {
       padding-left: 30px;
+
+      @include media(640) {
+        padding-left: 0;
+      }
+    }
+
+    @include media(640) {
+      float: none;
+      width: 100%;
     }
   }
 
@@ -413,23 +422,35 @@ h1[class], h2[class], h3[class], h4[class], h5[class], h6[class], p[class] {
     display: -o-flex;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   &__item {
-    display: inline-block;
-    vertical-align: middle;
+
+    @include media(480) {
+      flex: 1 0 auto;
+    }
 
     &.active .paging__link {
       background-color: $orange;
       border-color: $orange;
     }
+
+    &.paging__item_prev,
+    &.paging__item_next {
+      @include media(480) {
+        flex-basis: 100%;
+      }
+    }
   }
 
   &__link {
     display: inline-block;
+    width: 100%;
     border: 1px solid #ececec;
     padding: 15px 20px;
     color: #575757;
+    text-align: center;
 
     &:hover {
       background-color: $orange;

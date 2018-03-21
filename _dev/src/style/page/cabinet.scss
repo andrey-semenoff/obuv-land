@@ -48,6 +48,10 @@
 .form_cabinet {
 	width: 600px;
 
+  @include media(640) {
+  	width: 100%;
+  }
+
 	.form__button {
 		border-color: $green;
 		color: $green;
@@ -60,6 +64,11 @@
 			background-color: $green;
 		}
 	}
+}
+
+#cabinet__tab_orders {
+	width: 100%;
+	overflow-y: auto;
 }
 
 .cabinet-orders {
