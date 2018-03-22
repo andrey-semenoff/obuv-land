@@ -6,8 +6,19 @@
 	&__form {
 		width: 50%;
 
+	  @include media(1200) {
+	    width: 70%;
+	  }
+	  @include media(992) {
+	    width: 100%;
+	  }
+
 		.form-group:nth-of-type(2) {
 			padding-left: 30px;
+
+		  @include media(640) {
+				padding-left: 0;
+		  }
 		}
 
 		.button {
@@ -27,6 +38,10 @@
 		display: -o-flex;
 		display: flex;
 		padding: 25px 0;
+
+	  @include media(640) {
+			flex-direction: column;
+	  }
 
 		&:not(:first-child) {
 			border-top: 1px solid #ececec;
@@ -50,19 +65,33 @@
 			margin-top: 10px;
 		}
 
-		&__photos {
+		&__photos[class] {
 			flex-basis: 20%;
 			display: -webkit-flex;
 			display: -moz-flex;
 			display: -ms-flex;
 			display: -o-flex;
 			display: flex;
+
+		  @include media(640) {
+				margin-top: 25px;
+		  }
+
 		}
 
 		&__photo {
 			margin: 0 10px;
 			width: 120px;
 			height: 75px;
+
+		  @include media(480) {
+				width: 50%;
+				height: 120px;
+		  }
+
+		  &-link {
+		  	display: inline-block;
+		  }
 
 			&-img {
 				@include fit();

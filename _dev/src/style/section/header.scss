@@ -407,7 +407,6 @@ header.header {
 		text-align: center;
 
 		@include media(480) {
-			flex-wrap: wrap;
 			justify-content: center;
 		}
 	}
@@ -437,6 +436,10 @@ header.header {
 	
 	&-text {
 		margin-top: 5px;
+
+		@include media(480) {
+			display: none;
+		}
 	}
 }
 
