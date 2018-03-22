@@ -51,46 +51,47 @@ block content
 					.jcarousel-pagination
 
 			.product-desc
+				._row
 
-				.product-params
-					.product-status Есть в наличии
-					.product-code Код товара:234 567
-					.product-body-m
-						p Кол-во пар: 8
-						p Размер: 36-40
-						p Бренд: CLASSICA
-						p Пол: Женский
-						a.show-all(href="#") Показать все характеристики
+					.product-params
+						.product-status Есть в наличии
+						.product-code Код товара:234 567
+						.product-body-m
+							p Кол-во пар: 8
+							p Размер: 36-40
+							p Бренд: CLASSICA
+							p Пол: Женский
+							a.show-all(href="#") Показать все характеристики
 
-				.product-params
-					.product-colors
-						span Цвет:
-						select.product-colors__select
-							option.product-colors__option(value="0") Синий
-							option.product-colors__option(value="1") Красный
-							option.product-colors__option(value="2") Черный
-							option.product-colors__option(value="3") Белый
-				
-					.product-sizes
-						a.show-all(href="#") Таблица размеров
-						.product-size.active 42-170
-						.product-size 42-170
-						.product-size 42-170
-				
-					.product-amount
-						span Количество <br> упаковок
-						._row.product-amount-changer
-							.product-amount-changer__btn(data-action="-")
-								.icon.icon-minus
-							input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
-							.product-amount-changer__btn(data-action="+")
-								.icon.icon-plus
+					.product-params
+						.product-colors
+							span Цвет:
+							select.product-colors__select
+								option.product-colors__option(value="0") Синий
+								option.product-colors__option(value="1") Красный
+								option.product-colors__option(value="2") Черный
+								option.product-colors__option(value="3") Белый
 					
-					.product-prices
-						.product-prices__pair Цена за пару: 285 грн.
-						.product-prices__pack Цена за ящик: 
-							span 1710 
-							| грн.
+						.product-sizes
+							.product-size.active 42-170
+							.product-size 42-170
+							.product-size 42-170
+							a.show-all(href="#") Таблица размеров
+					
+						.product-amount
+							span Количество <br> упаковок
+							._row.product-amount-changer
+								.product-amount-changer__btn(data-action="-")
+									.icon.icon-minus
+								input.product-amount-changer__input(type="text" name="amount" value="1" readonly)
+								.product-amount-changer__btn(data-action="+")
+									.icon.icon-plus
+						
+						.product-prices
+							.product-prices__pair Цена за пару: 285 грн.
+							.product-prices__pack Цена за ящик: 
+								span 1710 
+								| грн.
 				
 				.product-buttons
 					a.button.hvr-sweep-to-right.product-button__buy(href="#cart_popup") Купить

@@ -1,0 +1,81 @@
+extends ../main
+
+block vars
+	-
+		var breadcrumbs = [
+			{
+				name: 'Главная',
+				link: 'index.html'
+			},
+			{
+				name: 'Отзывы',
+				link: '#'
+			},
+		]
+
+block content
+	._container
+
+		.title
+			.title__inner Отзывы
+
+
+		.comments
+			form.form.comments__form
+				.form-group
+					label.form__label.form__label_required
+						.form__label-text Ваше имя
+						input.form__input(type="text" name="name" placeholder="Введите ваше имя")
+					label.form__label.form__label_required
+						.form__label-text Ваш e-mail
+						input.form__input(type="email" name="email" placeholder="Введите ваш e-mail")
+				.form-group
+					label.form__label.form__label_required
+						.form__label-text Текст отзыва
+						textarea.form__input.form__input_textarea(name="text" placeholder="Введите ваш отзыв")
+				._row
+					label.form__label.form__label_button
+						button.button.hvr-sweep-to-right.form__button Отправить
+
+			ul.comments-list
+				- var i = 0
+				while i < 10
+					- i++
+					li._row.comments-item
+						.comments-item__main
+							.comments-item__date 25 марта 201#{i}
+							.comments-item__name Елена
+							.comments-item__body Заказываю уже не первый раз! Товар полностью соответствует фото. Заказ отправляется очень быстро. Качеством обслуживания я довольна. Ассортимент товара огромный и много интересных моделей. Спасибо, что вы есть! Буду с вами сотрудничать!)
+						ul.comments-item__photos
+							li.comments-item__photo
+								a.comments-item__photo-link(href="/img/products/product_"+i+".jpg" data-fancybox-group="gallery" + i)
+									img.comments-item__photo-img(src="/img/products/product_"+i+".jpg", alt="")
+							li.comments-item__photo
+								a.comments-item__photo-link(href="/img/products/product_"+(i+1)+".jpg" data-fancybox-group="gallery" + i)
+									img.comments-item__photo-img(src="/img/products/product_"+(i+1)+".jpg", alt="")
+
+
+			.paging
+				ul.paging__list
+					li.paging__item.paging__item_prev
+						a.paging__link(href="#")
+							.fa.fa-chevron-left
+					li.paging__item.active
+						a.paging__link(href="#") 1
+					li.paging__item
+						a.paging__link(href="#") 2
+					li.paging__item
+						a.paging__link(href="#") 3
+					li.paging__item
+						a.paging__link(href="#") 4
+					li.paging__item
+						a.paging__link(href="#") 5
+					li.paging__item
+						a.paging__link(href="#") 6
+					li.paging__item
+						a.paging__link(href="#") 7
+					li.paging__item
+						a.paging__link(href="#") 8
+					li.paging__item.paging__item_next
+						a.paging__link(href="#")
+							.fa.fa-chevron-right

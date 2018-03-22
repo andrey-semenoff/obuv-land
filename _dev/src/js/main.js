@@ -287,7 +287,14 @@ $(function () {
   });
 
   // open cart
-  $(".product-button__buy, .hotlinks-link_basket, .catalog-body-open_filters").fancybox({
+  var fancy_open_links = [
+    '.product-button__buy',
+    '.hotlinks-link_basket',
+    '.catalog-body-open_filters',
+    '.comments-item__photo-link'
+  ];
+  
+  $(fancy_open_links.join(',')).fancybox({
     fitToView : false,
     autoSize  : false,
     closeClick  : false,
@@ -402,15 +409,13 @@ $(function () {
   // toggle header catalogs
   $('.header-catalog-all').on('click', function(e) {
     e.preventDefault();
-
     $('.header-catalog-dropdown').slideToggle();
   });
 
   // toggle submenues in catalog dropdown
-  $('.header-catalog-dropdown .header-catalog-link').on('click', function(e) {
+  $('.header-catalog-dropdown .header-catalog-link').on('click', '.dropdown-arrow', function(e) {
     e.preventDefault();
-
-    $(this).parent().toggleClass('open').end().siblings('.sublist').slideToggle();
+    $(this).closest('.header-catalog-item.parent').toggleClass('open').children('.header-catalog-link').siblings('.sublist').slideToggle();
   });
 
 
@@ -428,7 +433,6 @@ $(function () {
   // show|hide filters on mobile
   $(document).on('click', '.catalog-body-open_filters', function(e) {
     e.preventDefault();
-
 
   })
 

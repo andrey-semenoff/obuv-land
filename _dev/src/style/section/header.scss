@@ -72,7 +72,6 @@ header.header {
 	}
 
 	&.show {
-		width: 100%;
 		height: 48px;
 
 		.menu-list[class] {
@@ -496,11 +495,10 @@ header.header {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		text-align: center;
-
 	}
 
 	&-item {
-
+		
 	}
 
 	&-link {
@@ -530,13 +528,18 @@ header.header {
 		max-width: $container-width;
 		background: lighten($orange, 20%) linear-gradient(to bottom, #333, transparent 5px);
 		z-index: 100;
-		padding: 10px 15px 25px;
+		padding: 10px 15px;
 
 		& > .header-catalog-list {
 			@include media(992) {
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+			}
+
+			& > .header-catalog-item {
+				padding-left: 15px;
+				text-align: left;
 			}
 		}
 
@@ -545,53 +548,69 @@ header.header {
 		}
 
 		.header-catalog-item {
+			padding-right: 20px;
 
 			&.parent {
+				position: relative;
 
-				.header-catalog-link {
-					position: relative;
+				.dropdown-arrow {
+					content: '';
+					position: absolute;
+					top: 10px;
+					right: -5px;
+					width: 20px;
+					height: 20px;
+					cursor: pointer;
+					outline: none;
 
 					&:after {
 						content: '';
 						position: absolute;
 						top: 50%;
-						right: 0;
-						transform: translateY(-50%);
+						left: 50%;
+						transform: translate(-50%, -50%);
 						border-left: 6px solid #000;
 						border-top: 4px solid transparent;
 						border-bottom: 4px solid transparent;
 						transition: .5s;
 					}
 				}
+				
 
 			}
 
 			&.open > .header-catalog-link {
-					&:after {
-						transform: rotate(90deg) translateX(-50%);
-						// border-top: 6px solid #000;
-						// border-left: 4px solid transparent;
-						// border-right: 4px solid transparent;
+					.dropdown-arrow {
+						right: 0;
+
+						&:after {
+							transform: rotate(90deg) translate(-50%, 50%);
+						}
 					}
 				}
-			
+	
+		}
+
+		.header-catalog-link {
+			padding: 10px 15px;
 		}
 
 		.sublist {
+			width: 100%;
+				padding-left: 15px;
 
 			&__item {
 				display: block;
-				text-align: left;	
+				text-align: left;
 			}
 
 			&__link {
 				display: block;
-				padding: 5px 15px;
+				padding: 10px 20px 10px 15px;
 				text-align: left;
 			}
 
 			.sublist[class] {
-				padding-left: 15px;
 
 				.sublist__link {
 					display: inline-block;

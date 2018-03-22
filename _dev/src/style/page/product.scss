@@ -119,6 +119,18 @@
     }
 	}
 
+	&-params {
+    @include media(992) {
+			float: left;
+			width: 50%;
+    }
+    @include media(640) {
+			float: none;
+			width: 100%;
+			text-align: center;
+    }
+	}
+
 	&-name {
 		width: 58%;
 		float: right;
@@ -200,6 +212,9 @@
 		margin-top: 20px;
 		width: fit-content;
 
+    @include media(640) {
+			margin: 20px auto;
+    }
 
 		& .show-all {
 			position: absolute;
@@ -208,6 +223,12 @@
 			white-space: nowrap;
 			color: $green;
 			border-bottom: 1px dashed $green;
+
+	    @include media(992) {
+	    	margin-top: 15px;
+	    	display: inline-block;
+				position: static;
+		  }
 		}
 	}
 
@@ -236,6 +257,12 @@
 		display: flex;
 		align-items: center;
 		margin-top: 25px;
+		width: fit-content;
+
+
+    @include media(640) {
+			margin: 20px auto;
+    }
 
 		&-changer {
 			display: -webkit-flex;
@@ -282,6 +309,9 @@
 	}
 
 	&-buttons {
+    @include media(992) {
+			text-align: center;
+	  }
 	}
 
 	&-button__buy {
@@ -291,6 +321,10 @@
 		border: 2px solid $orange;
 		text-transform: uppercase;
 		font-size: 20px;
+
+    @include media(480) {
+			width: 100%;
+	  }
 
 		&:before {
 			background-color: $orange;

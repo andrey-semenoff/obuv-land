@@ -14,7 +14,9 @@
 }
 
 @mixin fit($type: cover) {
-  object-fir: $type;
+  width: 100%;
+  height: 100%;
+  object-fit: $type;
 }
 
 @mixin v-align-child ($valine: middle) {
